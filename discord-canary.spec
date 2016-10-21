@@ -1,11 +1,11 @@
 Name:           discord-canary
-Version:        0.0.8
+Version:        0.0.9
 Release:        1%{?dist}
 Summary:        Experimental canary build for Discord
 
 License:        proprietary
 URL:            https://discordapp.com/
-Source0:        %{name}-%{version}.tar.gz
+Source0:        https://discordapp.com/api/download/canary?platform=linux&format=tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRequires:  libXScrnSaver
 Requires:       libXScrnSaver
@@ -29,7 +29,7 @@ mkdir -p $RPM_BUILD_ROOT/usr/share/applications
 
 cp -r * $RPM_BUILD_ROOT/opt/DiscordCanary/
 ln -sf /opt/DiscordCanary/DiscordCanary $RPM_BUILD_ROOT/%{_bindir}/
-install -m 755 Discord.desktop $RPM_BUILD_ROOT/usr/share/applications/
+desktop-file-install --dir=%{buildroot}/%{_datadir}/applications Discord.desktop
 
 %files
 %defattr(-,root,root)
@@ -37,11 +37,14 @@ install -m 755 Discord.desktop $RPM_BUILD_ROOT/usr/share/applications/
 %{_bindir}/DiscordCanary
 /usr/share/applications/Discord.desktop
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Fri Oct 21 2016 Vishal Verma <vishal@stellar.sh>
+- Update to discord-canary-0.0.9
+- Use desktop-file-install to install the desktop file
+
 * Fri Jul  8 2016 Vishal Verma <vishal@stellar.sh>
 - Initial build (using discord-canary-0.0.8), adding .desktop file
 - 

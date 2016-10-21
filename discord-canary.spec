@@ -29,7 +29,7 @@ mkdir -p $RPM_BUILD_ROOT/usr/share/applications
 
 cp -r * $RPM_BUILD_ROOT/opt/DiscordCanary/
 ln -sf /opt/DiscordCanary/DiscordCanary $RPM_BUILD_ROOT/%{_bindir}/
-desktop-file-install --dir=%{buildroot}/%{_datadir}/applications Discord.desktop
+install -m 755 Discord.desktop %{buildroot}/%{_datadir}/applications/
 
 %files
 %defattr(-,root,root)

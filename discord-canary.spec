@@ -1,11 +1,11 @@
 Name:           discord-canary
-Version:        0.0.8
+Version:        0.0.9
 Release:        1%{?dist}
 Summary:        Experimental canary build for Discord
 
 License:        proprietary
 URL:            https://discordapp.com/
-Source0:        %{name}-%{version}.tar.gz
+Source0:        https://discordapp.com/api/download/canary?platform=linux&format=tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRequires:  libXScrnSaver
 Requires:       libXScrnSaver
@@ -29,14 +29,13 @@ mkdir -p $RPM_BUILD_ROOT/usr/share/applications
 
 cp -r * $RPM_BUILD_ROOT/opt/DiscordCanary/
 ln -sf /opt/DiscordCanary/DiscordCanary $RPM_BUILD_ROOT/%{_bindir}/
-install -m 755 Discord.desktop $RPM_BUILD_ROOT/usr/share/applications/
+desktop-file-validate %{buildroot}/%{_datadir}/applications/Discord.desktop
 
 %files
 %defattr(-,root,root)
 /opt/DiscordCanary/
 %{_bindir}/DiscordCanary
 /usr/share/applications/Discord.desktop
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT

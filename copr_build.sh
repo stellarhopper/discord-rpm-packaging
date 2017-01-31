@@ -6,7 +6,7 @@ discord_dir="DiscordCanary"
 # get the latest tgz
 url2=$(curl -s "$url" | grep "a href=" | cut -d= -f2 | cut -d'"' -f2)
 file=${url2##*/}
-curl -s -O "$url2"
+[ -s "$file" ] || curl -s -O "$url2"
 
 # add the spec and desktop files
 git pull

@@ -1,5 +1,5 @@
 Name:           discord-canary
-Version:        0.0.13
+Version:        0.0.15
 Release:        1%{?dist}
 Summary:        Experimental canary build for Discord
 
@@ -41,6 +41,9 @@ install -m 755 Discord.desktop %{buildroot}/%{_datadir}/applications/
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Thu Jan 26 2017 Joel Vasallo <joelvasallo@gmail.com>
+- Update to discord-canary-0.0.15
+
 * Thu Jan  5 2017 Sean Callaway <seancallaway@fedoraproject.org>
 - Update to discord-canary-0.0.13
 

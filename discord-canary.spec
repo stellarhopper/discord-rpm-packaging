@@ -1,14 +1,14 @@
 Name:           discord-canary
 Version:        0.0.15
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Experimental canary build for Discord
 
 License:        proprietary
 URL:            https://discordapp.com/
 Source0:        https://discordapp.com/api/download/canary?platform=linux&format=tar.gz#/%{name}-%{version}.tar.gz
 
-BuildRequires:  libXScrnSaver
-Requires:       libXScrnSaver
+BuildRequires:  libXScrnSaver libcxx
+Requires:       libXScrnSaver libcxx
 AutoReqProv:    no
 
 %description
@@ -41,6 +41,9 @@ install -m 755 Discord.desktop %{buildroot}/%{_datadir}/applications/
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Tue Jan 31 2017 Vishal Verma <vishal@stellar.sh>
+- Add a dependency for libcxx and bump the release to '2'
+
 * Thu Jan 26 2017 Joel Vasallo <joelvasallo@gmail.com>
 - Update to discord-canary-0.0.15
 

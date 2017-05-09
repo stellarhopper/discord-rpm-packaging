@@ -1,6 +1,6 @@
 Name:           discord-canary
-Version:        0.0.15
-Release:        2%{?dist}
+Version:        0.0.16
+Release:        1%{?dist}
 Summary:        Experimental canary build for Discord
 
 License:        proprietary
@@ -41,6 +41,10 @@ install -m 755 Discord.desktop %{buildroot}/%{_datadir}/applications/
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+
+* Sat May  6 2017 Jan Varga <jano4varga@gmail.com>
+- Update to discord-canary-0.0.16
+
 * Tue Jan 31 2017 Vishal Verma <vishal@stellar.sh>
 - Add a dependency for libcxx and bump the release to '2'
 

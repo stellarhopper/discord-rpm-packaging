@@ -1,6 +1,6 @@
 Name:           discord-canary
 Version:        0.0.16
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Experimental canary build for Discord
 
 License:        proprietary

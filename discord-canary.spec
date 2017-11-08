@@ -1,5 +1,5 @@
 Name:           discord-canary
-Version:        0.0.24
+Version:        0.0.25
 Release:        1%{?dist}
 Summary:        Experimental canary build for Discord
 
@@ -41,6 +41,8 @@ install -m 755 Discord.desktop %{buildroot}/%{_datadir}/applications/
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Tue Nov  7 2017 Xavier Stouder <xavier@stouder.io>
+- Update to discord-canary-0.0.25
 
 * Sun Jun  9 2017 Vishal Verma <vishal@stellar.sh>
 - Update to discord-canary-0.0.18

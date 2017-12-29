@@ -4,6 +4,16 @@ url="https://discordapp.com/api/download/canary?platform=linux&format=tar.gz"
 discord_dir="DiscordCanary"
 rel=27
 
+install()
+{
+	local oldver="$(rpm -q discord-canary)"
+
+	# if discord wasn't locally installed already, skip
+	[ -z "$oldver" ] && return
+
+	sudo dnf install -y ./results_discord-canary/$ver/1.fc$rel/*.x86_64.rpm
+}
+
 # get the latest tgz
 url2=$(curl -s "$url" | grep "a href=" | cut -d= -f2 | cut -d'"' -f2)
 file=${url2##*/}
@@ -36,3 +46,5 @@ fedpkg --release f$rel --module-name discord-canary mockbuild
 # push to copr
 # copr-cli build discord-canary ./results*/"$ver"/1.fc$rel/*.src.rpm
 rm ./*.tar.gz
+
+install

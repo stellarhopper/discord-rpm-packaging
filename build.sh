@@ -2,7 +2,7 @@
 
 url="https://discordapp.com/api/download/canary?platform=linux&format=tar.gz"
 discord_dir="DiscordCanary"
-rel=27
+rel=28
 
 install()
 {
@@ -20,6 +20,18 @@ file=${url2##*/}
 [ -s "$file" ] || curl -s -O "$url2"
 ver="${file##*-}"
 ver="${ver%.tar.gz}"
+
+inst_ver="$(rpm -qv discord-canary | cut -d'-' -f3)"
+if [ -n "$inst_ver" ]; then
+	if [[ "$ver" == "$inst_ver" ]]; then
+		if [[ "$1" == "force" ]]; then
+			: force build
+		else
+			echo "$ver already installed"
+			exit 0
+		fi
+	fi
+fi
 
 # prepare spec, push
 git reset --hard HEAD

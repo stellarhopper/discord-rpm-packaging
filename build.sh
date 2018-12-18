@@ -12,6 +12,9 @@ install()
 	[ -z "$oldver" ] && return
 
 	sudo dnf install -y ./results_discord-canary/$ver/1.fc$rel/*.x86_64.rpm
+
+	# The binary seems to have lost its executable attribute
+	sudo chmod +x /opt/DiscordCanary/DiscordCanary
 }
 
 # get the latest tgz

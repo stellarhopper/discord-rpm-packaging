@@ -1,5 +1,5 @@
 Name:           discord-canary
-Version:        0.0.89
+Version:        0.0.90
 Release:        1%{?dist}
 Summary:        Experimental canary build for Discord
 

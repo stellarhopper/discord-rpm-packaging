@@ -2,7 +2,7 @@
 
 url="https://discordapp.com/api/download/canary?platform=linux&format=tar.gz"
 discord_dir="DiscordCanary"
-rel=32
+rel=34
 
 install()
 {

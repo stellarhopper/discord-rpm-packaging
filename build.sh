@@ -56,7 +56,7 @@ tar czf "$file" "$discord_dir"
 rm -rf "$discord_dir"
 
 # build srpm
-fedpkg --release f$rel --module-name discord-canary mockbuild
+fedpkg --release f$rel --name discord-canary mockbuild
 
 # push to copr
 # copr-cli build discord-canary ./results*/"$ver"/1.fc$rel/*.src.rpm
